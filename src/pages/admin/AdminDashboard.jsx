@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { adminStats, monthlyOrderData, categoryData, statusColors } from '../../data/mockData';
 import AdminSidebar from '../../components/AdminSidebar';
-import AdminTopBar from '../../components/AdminTopBar';
 import {
   Package, ShoppingCart, Clock, CheckCircle2, Users, FileText,
   TrendingUp, ArrowUpRight, DollarSign, Calendar
@@ -31,20 +30,28 @@ export default function AdminDashboard() {
 
       <main className="flex-1 p-6 lg:p-10 max-w-7xl mx-auto overflow-y-auto">
         {/* Top Header */}
-        <AdminTopBar
-          title="Executive Production Console"
-          subtitle="BM Print Pack · Real-time operational metrics & commercial run monitoring"
-        >
-          <span className="text-xs font-bold px-3 py-2 rounded-xl bg-white border border-[#E2E8F0] text-[#12304A] flex items-center gap-1.5 shadow-2xs">
-            <Calendar size={13} className="text-[#159A6A]" /> FY 2026 Production Cycle
-          </span>
-          <Link
-            to="/admin/orders"
-            className="bg-[#159A6A] hover:bg-[#118057] text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-2xs"
-          >
-            Manage Orders Queue
-          </Link>
-        </AdminTopBar>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B2235] tracking-tight">
+              Executive Production Console
+            </h1>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+              BM Print Pack · Real-time operational metrics & commercial run monitoring
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold px-3 py-1.5 rounded-lg bg-white border border-[#E2E8F0] text-[#12304A] flex items-center gap-1.5 shadow-2xs">
+              <Calendar size={13} className="text-[#159A6A]" /> FY 2026 Production Cycle
+            </span>
+            <Link
+              to="/admin/orders"
+              className="bg-[#159A6A] hover:bg-[#118057] text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow-2xs"
+            >
+              Manage Orders Queue
+            </Link>
+          </div>
+        </div>
 
         {/* 6 KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">

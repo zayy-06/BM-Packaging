@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Package, ShoppingCart, DollarSign,
-  LogOut, LogIn, ChevronRight, Menu, X, Users
+  LogOut, ChevronRight, Menu, X, Users
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -19,7 +19,7 @@ export default function AdminSidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { adminLogout, isAdminLoggedIn } = useApp();
+  const { adminLogout } = useApp();
 
   const isActive = (to) => location.pathname === to;
 
@@ -65,48 +65,21 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      {/* Bottom Auth & Navigation Section */}
-      <div className="mt-auto px-3 pb-4 border-t border-[#E2E8F0] pt-3 space-y-2">
-        {!collapsed && (
-          <div className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-left">
-            <div className="text-[11px] font-bold text-[#0B2235] truncate">
-              {isAdminLoggedIn ? 'admin@bmprint.com' : 'Guest Administrator'}
-            </div>
-            <div className="text-[9px] text-[#159A6A] font-semibold uppercase tracking-wider">
-              {isAdminLoggedIn ? 'Authenticated Admin' : 'Demo Console Mode'}
-            </div>
-          </div>
-        )}
-
+      {/* Return to Customer Portal & Sign Out */}
+      <div className="px-3 pb-4 border-t border-[#E2E8F0] pt-3 space-y-1">
         <Link
           to="/"
-          className={`flex items-center gap-2.5 w-full px-2.5 py-2 rounded-xl text-[11px] font-bold text-[#12304A] hover:bg-slate-100 transition ${collapsed ? 'justify-center' : ''}`}
-          title="Open Customer Front Page"
+          className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-[11px] font-bold text-slate-500 hover:text-[#12304A] hover:bg-slate-100 transition ${collapsed ? 'justify-center' : ''}`}
         >
           <span className="w-2 h-2 rounded-full bg-[#159A6A] shrink-0" />
           {!collapsed && <span>View Client Front</span>}
         </Link>
-
-        {/* Admin Login button (if not logged in) */}
-        {!isAdminLoggedIn && (
-          <Link
-            to="/admin/login"
-            className={`flex items-center gap-2.5 w-full px-2.5 py-2 rounded-xl text-xs font-bold text-white bg-[#159A6A] hover:bg-[#12835a] transition shadow-xs ${collapsed ? 'justify-center' : ''}`}
-            title="Admin Login"
-          >
-            <LogIn size={15} className="shrink-0 text-white" />
-            {!collapsed && <span>Admin Login</span>}
-          </Link>
-        )}
-
-        {/* Admin Logout button */}
         <button
           onClick={() => { adminLogout(); navigate('/admin/login'); }}
-          className={`flex items-center gap-2.5 w-full px-2.5 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 transition cursor-pointer active:scale-98 ${collapsed ? 'justify-center' : ''}`}
-          title="Sign Out of Admin Console"
+          className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-xs font-bold text-slate-500 hover:bg-red-50 hover:text-red-600 transition ${collapsed ? 'justify-center' : ''}`}
         >
-          <LogOut size={15} className="shrink-0 text-red-600" />
-          {!collapsed && <span>Admin Logout</span>}
+          <LogOut size={16} className="shrink-0" />
+          {!collapsed && <span>Sign Out</span>}
         </button>
       </div>
     </div>

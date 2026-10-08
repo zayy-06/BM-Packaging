@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminSidebar from '../../components/AdminSidebar';
-import AdminTopBar from '../../components/AdminTopBar';
 import { useApp } from '../../context/AppContext';
 import { statusColors, orderStatuses } from '../../data/mockData';
 import {
@@ -28,14 +27,22 @@ export default function AdminOrders() {
 
       <main className="flex-1 p-6 lg:p-10 max-w-7xl mx-auto overflow-y-auto">
         {/* Header */}
-        <AdminTopBar
-          title="Order Fulfillment Queue"
-          subtitle="Review and monitor commercial client orders across technical prepress, cylinder engraving, and dispatch."
-        >
-          <span className="text-xs font-bold px-3 py-2 rounded-xl bg-[#E8F6F0] text-[#159A6A] border border-[#159A6A]/20">
-            Total Production Runs: {orders.length}
-          </span>
-        </AdminTopBar>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B2235] tracking-tight">
+              Order Fulfillment Queue
+            </h1>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+              Review and monitor commercial client orders across technical prepress, cylinder engraving, and dispatch.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold px-3 py-1.5 rounded-lg bg-[#E8F6F0] text-[#159A6A] border border-[#159A6A]/20">
+              Total Production Runs: {orders.length}
+            </span>
+          </div>
+        </div>
 
         {/* Filter Bar */}
         <div className="bg-white p-4 rounded-xl border border-[#E2E8F0] shadow-2xs mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
