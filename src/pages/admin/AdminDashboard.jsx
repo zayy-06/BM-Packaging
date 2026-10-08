@@ -25,14 +25,15 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex">
+    <div className="flex h-screen bg-[#F8FAFC] overflow-hidden">
       <AdminSidebar />
 
-      <main className="flex-1 p-6 lg:p-10 max-w-7xl mx-auto overflow-y-auto">
-        {/* Top Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B2235] tracking-tight">
+      <main className="flex-1 overflow-y-auto">
+        <div className="p-6 lg:p-10 max-w-7xl mx-auto">
+          {/* Top Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B2235] tracking-tight">
               Executive Production Console
             </h1>
             <p className="text-xs sm:text-sm text-[#64748B] mt-1">
@@ -194,6 +195,7 @@ export default function AdminDashboard() {
               </tbody>
             </table>
           </div>
+        </div>
         </div>
       </main>
     </div>

@@ -28,12 +28,13 @@ export default function AdminOrderDetails() {
   const statusClass = statusColors[currentStatus] || 'bg-slate-100 text-slate-700';
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex">
+    <div className="flex h-screen bg-[#F8FAFC] overflow-hidden">
       <AdminSidebar />
 
-      <main className="flex-1 p-6 lg:p-10 max-w-7xl mx-auto overflow-y-auto">
-        {/* Breadcrumb Header */}
-        <div className="flex items-center justify-between mb-6">
+      <main className="flex-1 overflow-y-auto">
+        <div className="p-6 lg:p-10 max-w-7xl mx-auto">
+          {/* Breadcrumb Header */}
+          <div className="flex items-center justify-between mb-6">
           <Link
             to="/admin/orders"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#12304A] hover:text-[#159A6A] transition"
@@ -254,6 +255,7 @@ export default function AdminOrderDetails() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </main>
     </div>

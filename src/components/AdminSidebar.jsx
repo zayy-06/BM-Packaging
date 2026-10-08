@@ -88,7 +88,7 @@ export default function AdminSidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className={`hidden lg:flex flex-col bg-white border-r border-[#E2E8F0] transition-all duration-200 shrink-0 ${collapsed ? 'w-16' : 'w-56'}`}>
+      <aside className={`hidden lg:flex flex-col h-screen sticky top-0 bg-white border-r border-[#E2E8F0] transition-all duration-200 shrink-0 ${collapsed ? 'w-16' : 'w-56'}`}>
         <button
           onClick={() => setCollapsed(!collapsed)}
           className="bg-white border border-[#E2E8F0] rounded-full w-6 h-6 flex items-center justify-center text-slate-500 hover:text-[#12304A] shadow-xs z-10"
