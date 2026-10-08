@@ -51,7 +51,7 @@ function CustomerLayout() {
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
         <Routes>
           {/* Customer Facing Routes */}
